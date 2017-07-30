@@ -1,0 +1,78 @@
+@font-face {
+	font-family: "Ubuntu Mono";
+	src: url(ubuntu-mono/UbuntuMono-R.ttf);
+}
+@font-face {
+	font-family: "Ubuntu Regulat";
+	src: url(ubuntu-regular/Ubuntu-R.ttf);
+}
+body{
+	widht: 100%;
+	height: 100%;
+	overflow: hidden;
+	font-family: "Ubuntu Regulat";
+}
+*{
+	box-sizing:border-box;
+}
+#clock{
+	font-size: 25vH;
+	line-height: 45vH;
+	text-align: center;
+	color: black;
+	transition: color 5s;
+	z-index: 100;
+	font-family: "Ubuntu Mono", monospace;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  margin-top: 7.1vH;
+}
+.unit{            
+	display: inline-block;
+	margin: 0px 5px;
+}
+
+#alert{
+	text-align: center;
+	font-size: 9.5vH;
+	line-height: 17vH;
+}
+#dark{
+	position: absolute;
+	z-index: 10;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0);
+	transition: background-color 5s;
+}
+#video{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	display: none;
+	z-index: 1;
+}
+#message_wrapper{
+	text-align: center;
+	font-size: 7vH;
+	line-height: 7.1vH;
+  position: absolute;
+  margin-top: 1vH;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+#message_wrapper *{
+  display: inline-block;
+}
+#message_wrapper img{
+  max-height: 7.1vH;
+  height: auto;
+  max-width: 14vH;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 2vH; 
+}

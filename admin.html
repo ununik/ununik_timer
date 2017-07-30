@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+    <link rel="stylesheet" type="text/css" href="./style/main.css">
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>    
+  </head>
+  <body>
+  <a href="index.html" id="save">spustit</a>
+  </body>
+
+<script>
+	window.$ = window.jQuery = require('./ext_library/jquery-3.2.1.min.js');
+    // You can also require other files to run in this process
+    require('./renderer.js')
+    const storage = require('electron-json-storage');
+    require('./ext_library/admin.js')
+  </script>
+</html>

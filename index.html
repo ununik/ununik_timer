@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+    <link rel="stylesheet" type="text/css" href="./style/main.css">
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>    
+  </head>
+  <body>
+    <div id="dark"></div>
+    <div id="time_box"></div>
+    <video id="video"><source src="videos/Heavens_Gates.mp4" type="video/mp4"><source src="videos/Heavens_Gates.ogg" type="video/ogg"></video>
+    <div id="message_wrapper"><div id="message_icon"></div><div id="message_text">test</div></div>
+  </body>
+
+<script>
+	window.$ = window.jQuery = require('./ext_library/jquery-3.2.1.min.js');
+    // You can also require other files to run in this process
+    require('./renderer.js')
+    require('./ext_library/clocks.js')
+  </script>
+</html>
