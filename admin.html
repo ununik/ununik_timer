@@ -17,6 +17,7 @@
   </div>
   <a href="index.html" id="save">spustit</a>
   <div id="logo"></div>
+  <div id="verze"></div>
   </body>
 
 <script>
@@ -25,5 +26,7 @@
     require('./renderer.js')
     const storage = require('electron-json-storage');
     require('./ext_library/admin.js')
+    var pjson = require('./package.json');
+	$("#verze").text("Verze " + pjson.version);
   </script>
 </html>
