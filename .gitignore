@@ -1,3 +1,4 @@
 node_modules
 .project
 release-builds
+Release.key
