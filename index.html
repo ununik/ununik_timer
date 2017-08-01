@@ -17,6 +17,7 @@
 	window.$ = window.jQuery = require('./ext_library/jquery-3.2.1.min.js');
     // You can also require other files to run in this process
     require('./renderer.js')
+    const storage = require('electron-json-storage');
     require('./ext_library/clocks.js')
   </script>
 </html>

@@ -76,3 +76,35 @@ body{
   vertical-align: middle;
   margin-right: 2vH; 
 }
+
+.admin_time_partial{
+	width: 50px;
+	text-align: center;
+	margin: 0px 5px;
+	padding: 3px 1px;
+	border-radius: 3px;
+	border: 1px solid silver;
+}
+.title{
+	text-align: center;
+}
+#logo{
+	background-image: url(drak_zelena.svg);
+	background-size: 100%;
+	width: 33vW;
+	height: 15vW;
+	display: block;
+	position: fixed;
+	bottom: 5vH;
+	left: 33.5vW
+}
+#save{
+	display: inline-block;
+	padding: 5px 10px;
+	background-color: cornflowerblue;
+	border-radius: 10px;
+	color: black;
+	text-decoration: none;
+	margin: 0px auto;
+	font-size: 4vH;
+}

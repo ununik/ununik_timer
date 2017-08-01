@@ -1,3 +1,7 @@
+var time_hours = 9;
+var time_minutes = 30;
+var time_seconds = 0;
+
 function showClock(place){
 	
 	var html = '<div id="clock"><div class="unit" id="hours"></div>:<div class="unit" id="minutes"></div>:<div class="unit" id="seconds"></div></div><div id="alert"></div>';
@@ -14,7 +18,7 @@ function update(){
   $mOut = $('#minutes'),
   $sOut = $('#seconds');
 
-  var today = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9, 30, 0);
+  var today = new Date(date.getFullYear(), date.getMonth(), date.getDate(), time_hours, time_minutes, time_seconds);
   var timeAlert = today.getTime();
   
   var hours =  date.getHours() < 10
@@ -126,3 +130,16 @@ function showMessage()
     }
     
 }
+
+function getData(){
+    storage.get('ununik_timer', function(error, data) {
+        if (error) throw error;
+
+        time_hours = data.time_hours
+        time_minutes = data.time_minutes
+        time_seconds = data.time_seconds
+    });
+
+}
+
+getData();
