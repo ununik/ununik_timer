@@ -1,0 +1,15 @@
+{
+  "name": "Timer",
+  "version": "1.0.0",
+  "description": "Odpocet case",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "ununik",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~1.6.2",
+    "electron-packager": "~8.7.2"
+  }
+}
