@@ -17,7 +17,14 @@
     </div>
     <div class="input">
       <label for="video_name">Video:</label>
-      <input type="file" id="video_name" name="video_name" class="" allow=".mp4, .avi">
+      <input type="file" id="video_name" name="video_name" class="" accept=".mp4, .avi">
+    </div>
+    <div class="input">
+      <label>Zprávy:</label>
+      <div id="zpravy">
+
+      </div>
+      <span id="addMessage"></span>
     </div>
     <a href="index.html" id="save"></a>
   </div>
@@ -34,5 +41,8 @@
     require('./ext_library/admin.js')
     var pjson = require('./package.json');
 	$("#verze").text("Verze " + pjson.version);
+    function removeMessage(button) {
+        $(button).parent().remove();
+    }
   </script>
 </html>

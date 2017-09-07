@@ -123,3 +123,46 @@ body{
 	margin: 10px 0px;
 	text-align: center;
 }
+.current_icon{
+	max-height: 35px;
+	max-width: 35px;
+	width: auto;
+	height: auto;
+}
+.messages{
+	width: 500px;
+	border-left: 3px solid silver;
+	text-align: left;
+	padding: 5px 5px 5px 25px;
+	line-height: 2em;
+	margin: 15px 0px;
+}
+.messages label{
+	width: 150px;
+	display: inline-block;
+	text-align: right;
+	padding-right: 10px;
+}
+.messages input{
+	border-radius: 3px;
+	border: 1px solid silver;
+	width: 300px;
+}
+.removeMessage{
+	background-image: url(remove.svg);
+	background-size: 100%;
+	background-repeat:no-repeat;
+	display: block;
+	margin: 0px auto;
+	width: 25px;
+	height: 25px;
+}
+#addMessage{
+	background-image: url(add.svg);
+	background-size: 100%;
+	background-repeat:no-repeat;
+	display: block;
+	margin: 0px auto;
+	width: 25px;
+	height: 25px;
+}

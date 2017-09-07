@@ -96,7 +96,7 @@ date = new Date();
 //alert(date.getTime() + 5*60*1000);
 
 var messageAlerts = [
-{message:"Vypněte si své telefony", length: 5, icon:"style/no_tel.png"},
+//{message:"Vypněte si své telefony", length: 5, icon:"style/no_tel.png"},
 ];
 var messageNum = 0;
 var messageLastTimestamp = 0;
@@ -141,6 +141,10 @@ function getData(){
 
         document.getElementById('video').setAttribute('src', data.video_path);
         document.getElementById('video').load();
+
+        for (var i in data.messages.items) {
+            messageAlerts.push({message: data.messages.items[i].text, length: data.messages.items[i].time, icon: data.messages.items[i].icon});
+        }
     });
 
 }
