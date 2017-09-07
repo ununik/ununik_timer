@@ -100,15 +100,12 @@ body{
 }
 #save{
 	display: block;
-	padding: 5px 10px;
-	background-color: silver;
-	border-radius: 10px;
-	color: black;
-	text-decoration: none;
+	background-image: url(start.svg);
+	background-size: 100%;
+	background-repeat:no-repeat;
+	width: 105px;
+	height: 125px;
 	margin: 20px auto;
-	text-align: center;
-	font-size: 4vH;
-	width: 150px;
 }
 #verze{
 	width: 100%;
