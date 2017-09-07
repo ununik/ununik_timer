@@ -1,7 +1,7 @@
 {
   "name": "Timer",
-  "version": "1.0.0",
-  "description": "Odpocet case",
+  "version": "1.0.1",
+  "description": "Odpocet casu",
   "main": "main.js",
   "scripts": {
     "start": "electron ."

@@ -15,7 +15,7 @@ let editWindow
 function createWindow () {
   const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: width, height: height, fullscreen: true, icon: 'style/timer-icon.png', autoHideMenuBar: true})
+  mainWindow = new BrowserWindow({width: width, height: height, icon: 'style/timer-icon.png', autoHideMenuBar: true})
   //mainWindow = new BrowserWindow({width: 800, height: 600})
 
   // and load the index.html of the app.
