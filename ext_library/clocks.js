@@ -42,7 +42,7 @@ function update(){
     $('#clock').css('line-height', '65vH');
     $('#clock').css('text-align', 'center');
     $('#clock').css('margin-left', '0px');
-    $('#video').css('display', 'none');
+    //$('#video').css('display', 'none');
   
     $('#alert').text('');
   var timespan = date.getTime();
@@ -65,7 +65,7 @@ function update(){
 		  $('#dark').css('background-color', 'black');
 		  $('#clock').css('color', 'white');
 	  }
-
+//console.log(document.getElementById('video').duration);
 	  if (missing < (document.getElementById('video').duration * 1000) + 1000) {
           $('body').css('background-color', 'black');
           $('#video').css('display', 'block');
@@ -135,9 +135,12 @@ function getData(){
     storage.get('ununik_timer', function(error, data) {
         if (error) throw error;
 
-        time_hours = data.time_hours
-        time_minutes = data.time_minutes
-        time_seconds = data.time_seconds
+        time_hours = data.time_hours;
+        time_minutes = data.time_minutes;
+        time_seconds = data.time_seconds;
+
+        document.getElementById('video').setAttribute('src', data.video_path);
+        document.getElementById('video').load();
     });
 
 }

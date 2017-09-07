@@ -1,8 +1,15 @@
 function saveAdmin(){
+    if ($("#video_name").val() != '') {
+        video_path = document.getElementById("video_name").files[0].path;
+    } else {
+        video_path = '';
+    }
+
     save = {
         time_hours: $("#time_hours").val(),
         time_minutes: $("#time_minutes").val(),
         time_seconds: $("#time_seconds").val(),
+        video_path: video_path,
     }
 
     storage.set('ununik_timer', save, function(error) {

@@ -10,11 +10,15 @@
   <h1 class="title">ununik timer</h1>
   <div class="admin_form">
     <div class="input">
-      Začátek:
+      <label for="time_hours">Začátek:</label>
         <input type="number" min="0" max="23" id="time_hours" name="time_hours" class="admin_time_partial"> :
         <input type="number" min="0" max="59" id="time_minutes" name="time_minutes" class="admin_time_partial"> :
         <input type="number" min="0" max="59" id="time_seconds" name="time_seconds" class="admin_time_partial">
-      </div>
+    </div>
+    <div class="input">
+      <label for="video_name">Video:</label>
+      <input type="file" id="video_name" name="video_name" class="">
+    </div>
     <a href="index.html" id="save"></a>
   </div>
   <div id="logo"></div>
@@ -26,6 +30,7 @@
     // You can also require other files to run in this process
     require('./renderer.js')
     const storage = require('electron-json-storage');
+    const dialog = require('electron').remote;
     require('./ext_library/admin.js')
     var pjson = require('./package.json');
 	$("#verze").text("Verze " + pjson.version);
