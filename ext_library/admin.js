@@ -4,6 +4,12 @@ function saveAdmin(){
     } else {
         video_path = '';
     }
+    
+    if ($("#background_name").val() != '') {
+        background_path = document.getElementById("background_name").files[0].path;
+    } else {
+    	background_path = document.getElementById('current_background').getAttribute('src');
+    }
 
     var messages = {items: []};
     $( ".messages" ).each(function( index ) {
@@ -24,6 +30,7 @@ function saveAdmin(){
         time_minutes: $("#time_minutes").val(),
         time_seconds: $("#time_seconds").val(),
         video_path: video_path,
+        background_path: background_path,
         messages: messages,
     }
 
@@ -62,6 +69,7 @@ $( document ).ready(function() {
         $("#time_hours").val(data.time_hours);
         $("#time_minutes").val(data.time_minutes);
         $("#time_seconds").val(data.time_seconds);
+        document.getElementById('current_background').setAttribute('src', data.background_path);
 
         for (var i in data.messages.items) {
             html = "<div class='messages'>" +

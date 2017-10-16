@@ -16,6 +16,14 @@
         <input type="number" min="0" max="59" id="time_seconds" name="time_seconds" class="admin_time_partial">
     </div>
     <div class="input">
+      <label for="background_name">Pozadí:</label>
+      <input type="file" id="background_name" name="background_name" class="" accept=".jpg, .jpeg, .svg, .png, .gif">
+    </div>
+    <div class="input">
+      <label for="background_name">Aktualní pozadí:</label>
+      <img height="35px" width="auto" id="current_background"> <div class='removeMessage' onclick='removeBackground()'></div>
+    </div>
+    <div class="input">
       <label for="video_name">Video:</label>
       <input type="file" id="video_name" name="video_name" class="" accept=".mp4, .avi">
     </div>
@@ -43,6 +51,9 @@
 	$("#verze").text("Verze " + pjson.version);
     function removeMessage(button) {
         $(button).parent().remove();
+    }
+    function removeBackground() {
+    	document.getElementById('current_background').setAttribute('src', '');
     }
   </script>
 </html>

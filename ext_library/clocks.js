@@ -68,6 +68,7 @@ function update(){
 //console.log(document.getElementById('video').duration);
 	  if (missing < (document.getElementById('video').duration * 1000) + 1000) {
           $('body').css('background-color', 'black');
+          $('#dark_video').css('background-color', 'black');
           $('#video').css('display', 'block');
           document.getElementById('video').play();
           $('#clock').css('font-size', '7vH');
@@ -79,6 +80,7 @@ function update(){
           $('#clock').css('margin-top', '0');
       } else {
           $('body').css('background-color', 'white');
+          $('#dark_video').css('background-color', 'transparent');
           $('#message_wrapper').css('display', 'block');
       }
 
@@ -141,6 +143,9 @@ function getData(){
 
         document.getElementById('video').setAttribute('src', data.video_path);
         document.getElementById('video').load();
+        document.getElementById('video').setAttribute('src', data.video_path);
+        console.log(data.background_path);
+        	$('#background').css('background-image', 'url(' + data.background_path + ')');
 
         for (var i in data.messages.items) {
             messageAlerts.push({message: data.messages.items[i].text, length: data.messages.items[i].time, icon: data.messages.items[i].icon});
