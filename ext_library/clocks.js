@@ -80,6 +80,7 @@ function update(){
           $('#clock').css('margin-top', '0');
       } else {
           $('body').css('background-color', 'white');
+          $('body').css('color', color);
           $('#dark_video').css('background-color', 'transparent');
           $('#message_wrapper').css('display', 'block');
       }
@@ -140,6 +141,7 @@ function getData(){
         time_hours = data.time_hours;
         time_minutes = data.time_minutes;
         time_seconds = data.time_seconds;
+        color = data.color;
 
         document.getElementById('video').setAttribute('src', data.video_path);
         document.getElementById('video').load();
