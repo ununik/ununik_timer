@@ -4,11 +4,17 @@ function saveAdmin(){
     } else {
         video_path = '';
     }
-    
+
     if ($("#background_name").val() != '') {
         background_path = document.getElementById("background_name").files[0].path;
     } else {
     	background_path = document.getElementById('current_background').getAttribute('src');
+    }
+
+    if ($('#video_after_start:checkbox:checked').length > 0) {
+        video_after_start = true;
+    } else {
+        video_after_start = false;
     }
 
     var messages = {items: []};
@@ -33,6 +39,7 @@ function saveAdmin(){
         video_path: video_path,
         background_path: background_path,
         messages: messages,
+        video_after_start: video_after_start
     }
 
     storage.set('ununik_timer', save, function(error) {
@@ -66,12 +73,15 @@ storage.has('ununik_timer', function(error, hasKey) {
 $( document ).ready(function() {
     storage.get('ununik_timer', function(error, data) {
         if (error) throw error;
-        
+
         $("#time_hours").val(data.time_hours);
         $("#time_minutes").val(data.time_minutes);
         $("#time_seconds").val(data.time_seconds);
         $("#color").val(data.color);
-        document.getElementById('current_background').setAttribute('src', data.background_path);
+        if (data.background_path != 'undefined') {
+            console.log(data.background_path);
+            document.getElementById('current_background').setAttribute('src', data.background_path);
+        }
 
         for (var i in data.messages.items) {
             html = "<div class='messages'>" +

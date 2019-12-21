@@ -1,10 +1,12 @@
 var time_hours = 9;
 var time_minutes = 30;
 var time_seconds = 0;
+var video_after_start;
+var color;
 
 function showClock(place){
 	
-	var html = '<div id="clock"><div class="unit" id="hours"></div>:<div class="unit" id="minutes"></div>:<div class="unit" id="seconds"></div></div><div id="alert"></div>';
+	var html = '<div id="clock"><div class="unit" id="hours"></div>:<div class="unit" id="minutes"></div>:<div class="unit" id="seconds"></div></div>';
 
 $(place).html(html);
 
@@ -51,7 +53,7 @@ function update(){
   
   showMessage();
   
-  if (missing > 0) {
+  if (missing > 0 || video_after_start) {
 	  missingMinutes = Math.floor((missing/1000)/60) + 1;
 	  minutesWord = 'minut';
 	  if (missingMinutes < 5 && missingMinutes > 1) {
@@ -59,18 +61,22 @@ function update(){
 	  } else if (missingMinutes == 1) {
 		  minutesWord = 'minutu';
 	  }
-	  $('#alert').text('Začínáme za ' + missingMinutes + ' ' + minutesWord)
+	  $('#alert').html('Začínáme za ' + missingMinutes + ' ' + minutesWord)
 
-	  if (missing <= 5000) {
+	  if (missing <= 10000) {
 		  $('#dark').css('background-color', 'black');
 		  $('#clock').css('color', 'white');
 	  }
-//console.log(document.getElementById('video').duration);
-	  if (missing < (document.getElementById('video').duration * 1000) + 1000) {
+// console.log(document.getElementById('video').duration);
+	  if (
+	      (!video_after_start && missing < (document.getElementById('video').duration * 1000) + 1000)
+            || (video_after_start && missing < 0)
+      ) {
           $('body').css('background-color', 'black');
           $('#dark_video').css('background-color', 'black');
           $('#video').css('display', 'block');
           document.getElementById('video').play();
+          $('#video').css('z-index', '100000');
           $('#clock').css('font-size', '7vH');
           $('#clock').css('line-height', '10vH');
           $('#clock').css('text-align', 'right');
@@ -88,6 +94,7 @@ function update(){
 
   } else {
       document.getElementById('video').pause();
+      $('#video').css('z-index', '1');
   }
 } 
 
@@ -141,6 +148,7 @@ function getData(){
         time_hours = data.time_hours;
         time_minutes = data.time_minutes;
         time_seconds = data.time_seconds;
+        video_after_start = data.video_after_start;
         color = data.color;
 
         document.getElementById('video').setAttribute('src', data.video_path);
