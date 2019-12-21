@@ -19,7 +19,7 @@ body{
 	font-size: 25vH;
 	line-height: 45vH;
 	text-align: center;
-	color: black;
+	color: white;
 	transition: color 5s;
 	z-index: 100;
 	font-family: "Ubuntu Mono", monospace;
@@ -191,7 +191,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	position: absolute;
 	bottom: 0px;
 	left: 0px;
-	z-index: 10000;
+	z-index: 1000011;
 	transition: all 0.5s;	
 }
 #menu:hover{

@@ -3,6 +3,7 @@ var time_minutes = 30;
 var time_seconds = 0;
 var video_after_start;
 var color;
+var video_run = false;
 
 function showClock(place){
 	
@@ -75,7 +76,10 @@ function update(){
           $('body').css('background-color', 'black');
           $('#dark_video').css('background-color', 'black');
           $('#video').css('display', 'block');
-          document.getElementById('video').play();
+          if (!video_run) {
+              document.getElementById('video').play();
+              video_run = true;
+          }
           $('#video').css('z-index', '100000');
           $('#clock').css('font-size', '7vH');
           $('#clock').css('line-height', '10vH');
@@ -85,7 +89,7 @@ function update(){
           $('#message_wrapper').css('display', 'none');
           $('#clock').css('margin-top', '0');
       } else {
-          $('body').css('background-color', 'white');
+          $('body').css('background-color', 'black');
           $('body').css('color', color);
           $('#dark_video').css('background-color', 'transparent');
           $('#message_wrapper').css('display', 'block');
@@ -151,11 +155,15 @@ function getData(){
         video_after_start = data.video_after_start;
         color = data.color;
 
-        document.getElementById('video').setAttribute('src', data.video_path);
-        document.getElementById('video').load();
-        document.getElementById('video').setAttribute('src', data.video_path);
-        console.log(data.background_path);
+        if (data.video_path != 'undefined' && data.video_path) {
+            document.getElementById('video').setAttribute('src', data.video_path);
+            document.getElementById('video').load();
+            document.getElementById('video').setAttribute('src', data.video_path);
+        }
+        if (data.background_path != 'undefined' && data.background_path) {
+            console.log(data.background_path);
         	$('#background').css('background-image', 'url(' + data.background_path + ')');
+        }
 
         for (var i in data.messages.items) {
             messageAlerts.push({message: data.messages.items[i].text, length: data.messages.items[i].time, icon: data.messages.items[i].icon});
